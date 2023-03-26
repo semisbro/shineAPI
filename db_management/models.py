@@ -3,7 +3,7 @@ from tortoise import fields
 from tortoise.contrib.pydantic import pydantic_model_creator
 
 
-class BusinessUser(Model):
+class Business(Model):
     id = fields.IntField(pk=True)
     name = fields.CharField(max_length=600, null=True, blank=False)
     '''
@@ -29,7 +29,7 @@ class BusinessUser(Model):
      '''
 
     class Meta:
-        table = "business_management_business"
+        table = "business_management_business"  # django table name
 
 
-User_Pydantic = pydantic_model_creator(BusinessUser, name="BusinessUser")
+Businesses_pydantic = pydantic_model_creator(Business, name="Business")
