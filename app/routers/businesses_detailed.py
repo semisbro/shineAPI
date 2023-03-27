@@ -5,15 +5,14 @@ from db_management.models import Businesses_pydantic, Business
 from fastapi import APIRouter, HTTPException
 
 router = APIRouter(
-    prefix="/businesses",
-    tags=["businesses"],
+    prefix="/businesses/detailed",
+    tags=["businesses-detailed"],
 )
 
 
 @router.get("/", response_model=List[Businesses_pydantic])
 async def get_businesses():
     users = await Business.all()
-
     return users
 
 

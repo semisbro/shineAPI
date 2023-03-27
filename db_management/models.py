@@ -5,7 +5,28 @@ from tortoise.contrib.pydantic import pydantic_model_creator
 
 class Business(Model):
     id = fields.IntField(pk=True)
-    name = fields.CharField(max_length=600, null=True, blank=False)
+    name = fields.CharField(max_length=600, null=True)
+
+    logo = fields.CharField(max_length=600, null=True)
+    business_preview_image = fields.CharField(max_length=255, null=True)
+
+    public_description = fields.CharField(max_length=4000, null=True)
+    longitude = fields.DecimalField(max_digits=9, decimal_places=6, null=True)
+    latitude = fields.DecimalField(max_digits=9, decimal_places=6, null=True)
+
+    amount_of_reviews = fields.IntField(default=0, null=True)
+
+    category_name = fields.CharField(max_length=600, null=True)
+
+    #business_user = fields.ForeignKeyField("models.BusinessUser", null=True, on_delete=fields.SET_NULL)
+
+    used_languages = fields.CharField(max_length=600, null=True)
+
+    avg_star_review_score = fields.FloatField(null=True)
+
+
+
+
     '''
    
     email = fields.CharField(max_length=600, null=True)
